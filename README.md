@@ -5,7 +5,7 @@ k8 bootstrap (kubeadm)
 # TODO
 
 ## Node prep
-- [ ] sshd - Disable passwordauth
+- [x] sshd - Disable passwordauth
 - [ ] kube user
   - [ ] Create kube user
   - [ ] Add kube user to appropriate groups(sudo, wheel)
