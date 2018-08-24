@@ -19,9 +19,9 @@ k8 bootstrap (kubeadm)
     - exec-opts
       /etc/docker/daemon.json
       ```
-        {            
-         "exec-opts": ["native.cgroupdriver=systemd"]
-         } 
+      {            
+       "exec-opts": ["native.cgroupdriver=systemd"]
+      } 
       ```
   - cri-o ?
 
@@ -41,9 +41,11 @@ k8 bootstrap (kubeadm)
 ### Master
 - init masternode
 - copy kube configs to kube user
-    mkdir -p $HOME/.kube
-    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  ```
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  ```
 - add completions to ~/.bashrc
   - echo 'source <(kubectl completion bash)' >> ~/.bashrc
   - echo 'source <(kubeadm completion bash)' >> ~/.bashrc
