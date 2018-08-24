@@ -1,4 +1,4 @@
-# waxak
+# waxak ( 8 - 𝋨 )
 
 k8 bootstrap (kubeadm)
 
@@ -76,3 +76,6 @@ k8 bootstrap (kubeadm)
 - [ ] Backup etcd (?)
 - [ ] Remove nodes from the cluster
 
+## References
+
+- Maya Glyphs http://www.famsi.org/research/pitts/MayaGlyphsBook2.pdf
