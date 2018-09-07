@@ -1,0 +1,11 @@
+---
+ssh_key_type: "ecdsa"
+username: "kube"
+admin_groups:
+  redhat: "wheel"
+  debian: "sudo"
+shell: "/bin/bash"
+
+admin_group: "{{ admin_groups[ansible_os_family|lower] }}"
+
+...

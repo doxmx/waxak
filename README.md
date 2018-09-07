@@ -6,11 +6,12 @@ k8 bootstrap (kubeadm)
 
 ## Node prep
 - [x] sshd - Disable passwordauth
-- [ ] kube user
-  - [ ] Create kube user
-  - [ ] Add kube user to appropriate groups(sudo, wheel)
-  - [ ] Create ssh pair key for kube user
-  - [ ] Add ssh pub key to authorized keys for kube user
+- [x] kube user
+  - [x] Create kube user
+  - [x] Add kube user to appropriate groups(sudo, wheel)
+  - [x] Create ssh pair key for kube user
+  - [x] Add ssh pub key to authorized keys for kube user
+  - [x] Fetch priv key and stores under `~/kube_keys/<fqdn>/<key_name>`
 
 
 ## K8 prep

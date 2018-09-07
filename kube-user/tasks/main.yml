@@ -1,0 +1,41 @@
+---
+- name: Create user
+  user:
+    name: "{{ username }}"
+    groups: "{{ admin_group }}"
+    shell: "{{ shell }}"
+    skeleton: "yes"
+    generate_ssh_key: " yes"
+    ssh_key_type: "{{ ssh_key_type }}"
+    ssh_key_file: ".ssh/id_{{ ssh_key_type }}_{{ username }}"
+    state: "present"
+
+- name: Add pub key to authorized keys
+  copy:
+    src: "~{{ username }}/.ssh/id_{{ ssh_key_type }}_{{ username }}.pub"
+    dest: "~{{ username }}/.ssh/authorized_keys"
+    remote_src: "yes"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0400
+
+- name: Create local directory for priv keys
+  file:
+    path: "~/{{ username }}_keys/{{ ansible_fqdn }}"
+    state: directory
+    mode: 0700
+  become: "no"
+
+- name: Touch priv keys to fetch
+  file:
+    path: "~/{{ username }}_keys/{{ ansible_fqdn }}/id_{{ ssh_key_type }}_{{ username }}"
+    mode: 0600
+    state: touch
+  become: "no"
+
+- name: Fetch private key
+  fetch:
+    src: "~{{ username }}/.ssh/id_{{ ssh_key_type }}_{{ username }}"
+    dest: "~/{{ username }}_keys/{{ ansible_fqdn }}/"
+    flat: "true"
+...
