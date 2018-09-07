@@ -12,6 +12,9 @@ k8 bootstrap (kubeadm)
   - [x] Create ssh pair key for kube user
   - [x] Add ssh pub key to authorized keys for kube user
   - [x] Fetch priv key and stores under `~/kube_keys/<fqdn>/<key_name>`
+  - Either
+    - [ ] Create random password for kube user and store it somewhere
+    - [ ] Create sudo entry for `NOPASSWD`
 
 
 ## K8 prep
